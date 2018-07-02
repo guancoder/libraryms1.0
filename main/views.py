@@ -2,10 +2,13 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from main.models import *
 
 # Create your views here.
 def index_view(request):
-    return render(request,'index.html')
+    booklist = Book.objects.all()
+    book_num = BookBorrow.objects.all()
+    return render(request,'index.html',{'booklist':booklist,'book_num':book_num})
 
 
 def login_view(request):
