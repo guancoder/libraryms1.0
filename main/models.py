@@ -6,11 +6,17 @@ class BookStore(models.Model):
     store_id = models.AutoField(primary_key=True)
     store_name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return '%s'%self.store_name
+
 
 class BookType(models.Model):
     booktype_id = models.AutoField(primary_key=True)
     book_type = models.CharField(max_length=30)
     borrow_days = models.IntegerField(max_length=30)
+
+    def __str__(self):
+        return '%s'%self.book_type
 
 
 class ReaderType(models.Model):
